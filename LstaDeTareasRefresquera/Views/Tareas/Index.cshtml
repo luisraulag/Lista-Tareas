@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ListaDeTareasRefresquera.Models.Tarea>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>LISTA DE TAREAS</h1>
+
+<p>
+    <a asp-action="Create">Crear nueva tarea</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreTarea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaTarea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstatusTarea)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreTarea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaTarea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstatusTarea)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdTarea">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdTarea">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdTarea">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
